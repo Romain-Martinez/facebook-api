@@ -16,14 +16,14 @@ export class PostsService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} post`;
+    return this.prisma.post.findUnique({ where: { id } });
   }
 
   update(id: number, data: UpdatePostDto) {
-    return `This action updates a #${id} post`;
+    return this.prisma.post.update({ where: { id }, data });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} post`;
+    return this.prisma.post.delete({ where: { id } });
   }
 }
